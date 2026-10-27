@@ -38,8 +38,10 @@ conan install conanfile.txt --output-folder=build --build=missing -s build_type=
 cmake -B build -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/app valid.xml
-Сборка и запуск исправленной версии
-Bash
+```
+
+### Сборка и запуск исправленной версии
+```bash
 cd fixed_app
 conan profile detect --force
 conan lock create conanfile.txt --lockfile-out=conan.lock
@@ -47,3 +49,4 @@ conan install conanfile.txt --output-folder=build --build=missing -s build_type=
 cmake -B build -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/app valid.xml
+```
