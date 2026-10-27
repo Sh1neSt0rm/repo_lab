@@ -1,0 +1,7 @@
+.vscode/
+fixed_app/build/
+fixed_app/CMakeUserPresets.json
+fixed_app/conan.lock
+vulnerable_app/build/
+vulnerable_app/CMakeUserPresets.json
+vulnerable_app/conan.lock

@@ -1,0 +1,4 @@
+<config>
+    <user name="timur" role="admin" />
+    <comment>Standard user configuration</comment>
+</config>

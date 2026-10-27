@@ -1,0 +1,41 @@
+main.cpp:1:2: information: Include file: <iostream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <iostream>
+ ^
+main.cpp:2:2: information: Include file: <fstream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <fstream>
+ ^
+main.cpp:3:2: information: Include file: <sstream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <sstream>
+ ^
+main.cpp:4:2: information: Include file: <cstring> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstring>
+ ^
+main.cpp:5:2: information: Include file: <cstdio> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstdio>
+ ^
+main.cpp:6:2: information: Include file: <cstdlib> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstdlib>
+ ^
+main.cpp:7:2: information: Include file: <tinyxml2.h> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <tinyxml2.h>
+ ^
+main.cpp:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+main.cpp:62:46: error: Dereferencing 'note_buf' after it is deallocated / released [deallocuse]
+            std::cout << "Comment note: " << note_buf << std::endl;
+                                             ^
+main.cpp:65:17: error: Memory pointed to by 'note_buf' is freed twice. [doubleFree]
+                free(note_buf);
+                ^
+main.cpp:57:17: note: Memory pointed to by 'note_buf' is freed twice.
+                free(note_buf);
+                ^
+main.cpp:65:17: note: Memory pointed to by 'note_buf' is freed twice.
+                free(note_buf);
+                ^
+main.cpp:50:26: style: C-style pointer casting [cstyleCast]
+        char* note_buf = (char*)malloc(64);
+                         ^
+nofile:0:0: information: Active checkers: 183/186 (use --checkers-report=<filename> to see details) [checkersReport]
+

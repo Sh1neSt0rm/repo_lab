@@ -1,0 +1,141 @@
+321 warnings generated.
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:34:13: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+   34 |             strcpy(username_buf, name);
+      |             ^~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:34:13: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+   34 |             strcpy(username_buf, name);
+      |             ^~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:42:20: warning: format string is not a string literal (potentially insecure) [clang-diagnostic-format-security]
+   42 |             printf(role);
+      |                    ^~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:42:20: note: treat the string as an argument to avoid this
+   42 |             printf(role);
+      |                    ^
+      |                    "%s", 
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:62:13: warning: Use of memory after it is released [clang-analyzer-unix.Malloc]
+   62 |             std::cout << "Comment note: " << note_buf << std::endl;
+      |             ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:73:9: note: Assuming 'argc' is <= 1
+   73 |     if (argc > 1) {
+      |         ^~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:73:5: note: Taking false branch
+   73 |     if (argc > 1) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:84:5: note: Calling 'process_xml'
+   84 |     process_xml(buffer.str());
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:14:9: note: Assuming 'err' is equal to XML_SUCCESS
+   14 |     if (err != XML_SUCCESS) {
+      |         ^~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:14:5: note: Taking false branch
+   14 |     if (err != XML_SUCCESS) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:20:9: note: Assuming 'root' is non-null
+   20 |     if (!root) {
+      |         ^~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:20:5: note: Taking false branch
+   20 |     if (!root) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:26:9: note: Assuming 'user' is null
+   26 |     if (user) {
+      |         ^~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:26:5: note: Taking false branch
+   26 |     if (user) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:9: note: Assuming 'comment' is non-null
+   48 |     if (comment && comment->GetText()) {
+      |         ^~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:9: note: Left side of '&&' is true
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:20: note: Assuming the condition is true
+   48 |     if (comment && comment->GetText()) {
+      |                    ^~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:5: note: Taking true branch
+   48 |     if (comment && comment->GetText()) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:50:33: note: Memory is allocated
+   50 |         char* note_buf = (char*)malloc(64);
+      |                                 ^~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:51:13: note: Assuming 'note_buf' is non-null
+   51 |         if (note_buf) {
+      |             ^~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:51:9: note: Taking true branch
+   51 |         if (note_buf) {
+      |         ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:56:17: note: Assuming the condition is true
+   56 |             if (strstr(note_buf, "drop") != nullptr) {
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:56:13: note: Taking true branch
+   56 |             if (strstr(note_buf, "drop") != nullptr) {
+      |             ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:57:17: note: Memory is released
+   57 |                 free(note_buf);
+      |                 ^~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:62:13: note: Use of memory after it is released
+   62 |             std::cout << "Comment note: " << note_buf << std::endl;
+      |             ^                                ~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:69:1: warning: Potential leak of memory pointed to by 'note_buf' [clang-analyzer-unix.Malloc]
+   69 | }
+      | ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:73:9: note: Assuming 'argc' is <= 1
+   73 |     if (argc > 1) {
+      |         ^~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:73:5: note: Taking false branch
+   73 |     if (argc > 1) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:84:5: note: Calling 'process_xml'
+   84 |     process_xml(buffer.str());
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:14:9: note: Assuming 'err' is equal to XML_SUCCESS
+   14 |     if (err != XML_SUCCESS) {
+      |         ^~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:14:5: note: Taking false branch
+   14 |     if (err != XML_SUCCESS) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:20:9: note: Assuming 'root' is non-null
+   20 |     if (!root) {
+      |         ^~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:20:5: note: Taking false branch
+   20 |     if (!root) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:26:9: note: Assuming 'user' is null
+   26 |     if (user) {
+      |         ^~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:26:5: note: Taking false branch
+   26 |     if (user) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:9: note: Assuming 'comment' is non-null
+   48 |     if (comment && comment->GetText()) {
+      |         ^~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:9: note: Left side of '&&' is true
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:20: note: Assuming the condition is true
+   48 |     if (comment && comment->GetText()) {
+      |                    ^~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:48:5: note: Taking true branch
+   48 |     if (comment && comment->GetText()) {
+      |     ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:50:33: note: Memory is allocated
+   50 |         char* note_buf = (char*)malloc(64);
+      |                                 ^~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:51:13: note: Assuming 'note_buf' is non-null
+   51 |         if (note_buf) {
+      |             ^~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:51:9: note: Taking true branch
+   51 |         if (note_buf) {
+      |         ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:56:17: note: Assuming the condition is false
+   56 |             if (strstr(note_buf, "drop") != nullptr) {
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:56:13: note: Taking false branch
+   56 |             if (strstr(note_buf, "drop") != nullptr) {
+      |             ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:64:17: note: Assuming the condition is false
+   64 |             if (strstr(text, "drop") == nullptr) {
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:64:13: note: Taking false branch
+   64 |             if (strstr(text, "drop") == nullptr) {
+      |             ^
+/Users/timgabdr/Documents/Projects/rbpo1/vulnerable_app/main.cpp:69:1: note: Potential leak of memory pointed to by 'note_buf'
+   69 | }
+      | ^
+Suppressed 317 warnings (317 in non-user code).
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

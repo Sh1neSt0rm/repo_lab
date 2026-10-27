@@ -1,0 +1,7 @@
+[requires]
+tinyxml2/10.0.0
+expat/2.9.0
+
+[generators]
+CMakeDeps
+CMakeToolchain

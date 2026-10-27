@@ -1,0 +1,11 @@
+319 warnings generated.
+/Users/timgabdr/Documents/Projects/rbpo1/fixed_app/main.cpp:40:13: warning: the value returned by this function should not be disregarded; neglecting it may lead to errors [cert-err33-c]
+   40 |             snprintf(username_buf, sizeof(username_buf), "%s", name);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/fixed_app/main.cpp:40:13: note: cast the expression to void to silence this warning
+/Users/timgabdr/Documents/Projects/rbpo1/fixed_app/main.cpp:55:13: warning: the value returned by this function should not be disregarded; neglecting it may lead to errors [cert-err33-c]
+   55 |             snprintf(note_buf, 64, "%s", text);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/timgabdr/Documents/Projects/rbpo1/fixed_app/main.cpp:55:13: note: cast the expression to void to silence this warning
+Suppressed 317 warnings (317 in non-user code).
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

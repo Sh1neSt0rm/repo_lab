@@ -1,0 +1,29 @@
+main.cpp:1:2: information: Include file: <iostream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <iostream>
+ ^
+main.cpp:2:2: information: Include file: <fstream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <fstream>
+ ^
+main.cpp:3:2: information: Include file: <sstream> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <sstream>
+ ^
+main.cpp:4:2: information: Include file: <cstring> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstring>
+ ^
+main.cpp:5:2: information: Include file: <cstdio> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstdio>
+ ^
+main.cpp:6:2: information: Include file: <cstdlib> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <cstdlib>
+ ^
+main.cpp:7:2: information: Include file: <tinyxml2.h> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <tinyxml2.h>
+ ^
+main.cpp:8:2: information: Include file: <expat.h> not found. Please note: Standard library headers do not need to be provided to get proper results. [missingIncludeSystem]
+#include <expat.h>
+ ^
+main.cpp:53:26: style: C-style pointer casting [cstyleCast]
+        char* note_buf = (char*)malloc(64);
+                         ^
+nofile:0:0: information: Active checkers: 183/186 (use --checkers-report=<filename> to see details) [checkersReport]
+
