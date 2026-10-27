@@ -27,7 +27,7 @@
 ### Требования
 * CMake (версия 3.15+)
 * C++17 компилятор (Clang / GCC)
-* Пакетный менеджер Conan (`pip install conan`)
+* Пакетный менеджер Conan (`pip3 install conan`)
 
 ### Сборка и запуск уязвимой версии
 ```bash
@@ -49,4 +49,52 @@ conan install conanfile.txt --output-folder=build --build=missing -s build_type=
 cmake -B build -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/app valid.xml
+```
+
+---
+
+## 4. Проверка уязвимостей
+
+### A. Статический анализ (SAST)
+```bash
+mkdir -p reports/sast_before
+
+# 1. Cppcheck (поиск дефектов памяти и потока управления)
+cppcheck --enable=all --inconclusive --std=c++17 main.cpp 2> reports/sast_before/cppcheck_report.txt
+
+# 2. Flawfinder (сигнатурный поиск небезопасных функций вроде strcpy и printf)
+flawfinder --context --minlevel=1 main.cpp > reports/sast_before/flawfinder_report.txt
+
+# 3. Clang-Tidy (комплексный AST-анализ)
+/opt/homebrew/opt/llvm/bin/clang-tidy main.cpp -p build \
+  --extra-arg="-isysroot$(xcrun --show-sdk-path)" \
+  -checks='bugprone-*,cert-*,clang-analyzer-*,security-*' \
+  > reports/sast_before/clang_tidy_report.txt 2>&1
+```
+
+### Просмотр отчётов
+```bash
+cat reports/sast_before/cppcheck_report.txt
+cat reports/sast_before/flawfinder_report.txt
+cat reports/sast_before/clang_tidy_report.txt
+```
+
+### Б. Композиционный анализ (SCA)
+```bash
+mkdir -p reports/sca_before
+
+# 1. Генерация SBOM в формате CycloneDX JSON
+syft dir:. -o cyclonedx-json=reports/sca_before/sbom.cdx.json
+
+# 2. Сканирование зависимостей через Grype (с привязкой CPE)
+grype sbom:reports/sca_before/sbom.cdx.json --add-cpes-if-none > reports/sca_before/grype_report.txt
+
+# 3. Сканирование зависимостей через Trivy
+trivy sbom reports/sca_before/sbom.cdx.json > reports/sca_before/trivy_report.txt
+```
+
+### Просмотр отчётов
+```bash
+cat reports/sca_before/grype_report.txt
+cat reports/sca_before/trivy_report.txt
 ```
